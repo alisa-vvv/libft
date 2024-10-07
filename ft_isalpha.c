@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   libft.h                                             :+:    :+:           */
+/*   ft_isalpha.c                                        :+:    :+:           */
 /*                                                      +:+                   */
 /*   By: avaliull <marvin@42.fr>                       +#+                    */
 /*                                                    +#+                     */
-/*   Created: 2024/10/07 13:48:45 by avaliull       #+#    #+#                */
-/*   Updated: 2024/10/07 13:52:19 by avaliull       ########   odam.nl        */
+/*   Created: 2024/10/07 14:01:22 by avaliull       #+#    #+#                */
+/*   Updated: 2024/10/07 14:06:03 by avaliull       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
-
-#endif // LIBFT_H
+int	ft_isalpha(char c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1024);
+	return (0);
+}
