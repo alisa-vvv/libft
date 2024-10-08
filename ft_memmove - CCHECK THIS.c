@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tester.c                                           :+:      :+:    :+:   */
+/*   ft_memmove - CCHECK THIS.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 17:13:53 by avaliull         ###   ########.fr       */
+/*   Created: 2024/10/08 16:50:23 by avaliull          #+#    #+#             */
+/*   Updated: 2024/10/08 17:18:09 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ctype.h>
-#include <stdio.h>
-#include <string.h>
-
-
 
 void	ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ptr_dest;
 	unsigned char	*ptr_src;
+	unsigned char	tmp_str[n];
 	unsigned char	*ptr_tmp;
 
+	ptr_tmp = tmp_str;
 	ptr_dest = (unsigned char *) dest;
 	ptr_src = (unsigned char *) src;
 	while (n > 0)
@@ -31,7 +27,7 @@ void	ft_memmove(void *dest, const void *src, size_t n)
 		ptr_src++;
 		n--;
 	}
-	*ptr_tmp = '\0';
+	ptr_tmp = tmp_str;
 	while (*ptr_tmp)
 	{
 		*ptr_dest = *ptr_tmp;
@@ -39,6 +35,8 @@ void	ft_memmove(void *dest, const void *src, size_t n)
 		ptr_tmp++;
 	}
 }
+
+
 
 int	main(void)
 {	
@@ -56,20 +54,3 @@ int	main(void)
 	return (0);
 }
 
-
-
-
-	// while (i < 5)
-	// {
-	// 	printf("%d, ", ptr[i]);
-	// 	i++;
-	// }
-
-	// ft_memset(ptr, 9, 3);
-	// i = 0;
-	// printf("new arr: ");
-	// while (i < 5)
-	// {
-	// 	printf("%d, ", ptr[i]);
-	// 	i++;
-	// }
