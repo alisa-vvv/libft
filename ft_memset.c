@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 12:43:25 by avaliull         ###   ########.fr       */
+/*   Created: 2024/10/08 13:13:04 by avaliull          #+#    #+#             */
+/*   Updated: 2024/10/08 14:05:09 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
+	unsigned char	*ptr;
+
+	ptr = s;
+	while (n > 0)
+	{
+		*ptr = (unsigned char) c;
+		ptr++;
+		n--;
+	}
+	return (s);
 }

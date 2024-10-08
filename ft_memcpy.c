@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 12:43:25 by avaliull         ###   ########.fr       */
+/*   Created: 2024/10/08 14:16:37 by avaliull          #+#    #+#             */
+/*   Updated: 2024/10/08 14:42:01 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c)
+void	ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
+	unsigned char	*ptr_dest;
+	unsigned char	*ptr_src;
+
+	ptr_dest = dest;
+	ptr_src = (unsigned char *) src;
+	while (n > 0)
+	{
+		*ptr_dest = *ptr_src;
+		ptr_src++;
+		ptr_dest++;
+		n--;
+	}
 }

@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 12:43:25 by avaliull         ###   ########.fr       */
+/*   Created: 2024/10/08 14:04:26 by avaliull          #+#    #+#             */
+/*   Updated: 2024/10/08 14:13:40 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c)
+void	ft_bzero(void *s, size_t n)
 {
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
+	unsigned char	*ptr;
+
+	ptr = s;
+	while (n > 0)
+	{
+		*ptr = (unsigned char) '\0';
+		ptr++;
+		n--;
+	}
 }
