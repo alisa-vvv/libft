@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 17:13:53 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/08 18:26:15 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,29 @@
 #include <stdio.h>
 #include <string.h>
 
-
-
-void	ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*ptr_dest;
-	unsigned char	*ptr_src;
-	unsigned char	*ptr_tmp;
+	char	*ptr_s;
+	char	*last_occ;
 
-	ptr_dest = (unsigned char *) dest;
-	ptr_src = (unsigned char *) src;
-	while (n > 0)
+	ptr_s = (char *) s;
+	last_occ = NULL;
+	while (*ptr_s)
 	{
-		*ptr_tmp = *ptr_src;
-		ptr_tmp++;
-		ptr_src++;
-		n--;
+		if (*ptr_s == c)
+			last_occ = ptr_s;
+		ptr_s++;
 	}
-	*ptr_tmp = '\0';
-	while (*ptr_tmp)
-	{
-		*ptr_dest = *ptr_tmp;
-		ptr_dest++;
-		ptr_tmp++;
-	}
+	if (c == '\0')
+		return (ptr_s);
+	return (last_occ);
 }
 
 int	main(void)
 {	
-	char	*src = "12345";
-	char	dest3[6] = "abcde";
-	printf("src: %s\n\n", src);
-	printf("example before: %s\n", dest3);
-	memmove(dest3, src, 3);
-	printf("example after: %s\n\n", dest3);
-
-	char	dest4[6] = "abcde";
-	printf("myfunc before: %s\n", dest4);
-	ft_memmove(dest4, src, 3);
-	printf("myfunc after: %s\n", dest4);
+	char *str = "abc0def0gh";
+	printf("Example_Res: %s\n", strrchr(str, '1'));
+	printf("ft_Res: %s\n", ft_strrchr(str, '1'));
 	return (0);
 }
 
