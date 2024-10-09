@@ -6,53 +6,62 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/09 17:38:39 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:03:45 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <bsd/string.h> // use =lbsd when compiling
 
-static int	isequal(const char *hay, const char *needle, size_t len)
+static size_t	ft_strlen(const char *str)
 {
-	while (len)
-	{
-		if (*needle != *hay)
-			return (0);
-		needle++;
-		if (!*needle)
-			return (1);
-		len--;
-		hay++;
-	}
-	return (0);
+	size_t	c;
+
+	c = 0;
+	while (*str++)
+		c++;
+	return (c);
 }
 
-char	*ft_strnstr(const char *hay, const char *needle, size_t len)
-{
-	if (!*needle)
-		return ((char *) hay);
-	while (*hay && len--)
+ size_t	ft_strlcat(char *dst, const char *src, size_t size)
+ {
+	size_t	src_len;
+	
+	src_len = ft_strlen(src);
+	size -= 1;
+	while (size--)
 	{
-		if (*hay == *needle)
-		{
-			needle++;
-			if (!*needle || isequal(hay + 1, needle, len) == 1)
-				return ((char *) hay);
-		}
-		hay++;
+		*dst = *src;
+		dst++;
+		src++;
 	}
-	return (0);
-}
+	*dst = '\0';
+	return (src_len);
+ }
 
 int	main(void)
 {
-	char *s1 = "00ababa000-";
-	char *s2 = "000";
-//	printf("Example_Res: %s\n", strnstr(s1, s2, 15));
-	printf("ft_Res: %s\n", ft_strnstr(s1, s2, 15));
-	return (0);
+	char src[6] = "tenate";
+	char dst[5] = "conca";
+//	char *test_ptr = &src[7];
+//	test_ptr += 1;
+//	*test_ptr = 'a';
+	printf("src: %s\n", src);
+	printf("Example_Return: %zu\n", strlcat(dst, src, 12));
+	printf("Example_Res: %s\n", dst);
+	printf("Example_testChar: %s\n\n", dst + 4);
+
+//	char src2[8] = "abcdefgh";
+//	char dst2[8] = "12345678";
+//	char *test_ptr = &src2[7];
+//	test_ptr += 1;
+//	*test_ptr = 'a';
+//	printf("ft_Return: %zu\n", ft_strlcpy(dst2, src2, 4));
+//	printf("ft_Res: %s\n", dst2);
+//	printf("ft_testChar: %s\n", dst2 + 4);
+//	return (0);
 }
 
 
@@ -78,3 +87,23 @@ int	main(void)
 	// 	printf("%d, ", ptr[i]);
 	// 	i++;
 	// }
+
+//	char src[8] = "abcdefgh";
+//	char dst[8] = "12345678";
+//	char *test_ptr = &src[7];
+//	test_ptr += 1;
+//	*test_ptr = 'a';
+//	printf("src: %c\n", *src);
+//	printf("Example_Return: %zu\n", strlcpy(dst, src, 4));
+//	printf("Example_Res: %s\n", dst);
+//	printf("Example_testChar: %s\n\n", dst + 4);
+//
+//	char src2[8] = "abcdefgh";
+//	char dst2[8] = "12345678";
+//	char *test_ptr = &src2[7];
+//	test_ptr += 1;
+//	*test_ptr = 'a';
+//	printf("ft_Return: %zu\n", ft_strlcpy(dst2, src2, 4));
+//	printf("ft_Res: %s\n", dst2);
+//	printf("ft_testChar: %s\n", dst2 + 4);
+//	return (0);
