@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 18:27:58 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/09 11:39:22 by avaliull         ###   ########.fr       */
+/*   Created: 2024/10/09 11:25:18 by avaliull          #+#    #+#             */
+/*   Updated: 2024/10/09 11:40:43 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	while ((*s1 || *s2) && n > 0)
+	unsigned char	*ucs1;
+	unsigned char	*ucs2;
+
+	ucs1 = (unsigned char *) s1;
+	ucs2 = (unsigned char *) s2;
+	while ((*ucs1 && *ucs2) && n > 0)
 	{
-		if (*s1 < *s2)
-			return (-1);
-		if (*s1 > *s2)
-			return (1);
-		s1++;
-		s2++;
+		if (*ucs1 != *ucs2)
+			return (*ucs1 - *ucs2);
+		ucs1++;
+		ucs2++;
 		n--;
 	}
 	return (0);
