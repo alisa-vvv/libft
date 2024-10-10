@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/10 15:37:09 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/10 18:08:34 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,49 @@
 #include <bsd/string.h> // use =lbsd when compiling
 #include <stdlib.h>
 
-int	ft_atoi(const char *str)
+static void	ft_bzero(void *s, size_t n)
 {
-	signed char	sign;
-	int			newint;
+	unsigned char	*ptr;
 
-	sign = 1;
-	newint = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
+	ptr = s;
+	while (n > 0)
 	{
-		if (*str == '-')
-			sign = -sign;
-		str++;
+		*ptr = (unsigned char) '\0';
+		ptr++;
+		n--;
 	}
-	while (*str)
-	{
-		if (*str < 48 || *str > 57)
-			return (sign * newint);
-		newint = newint * 10 + *str - 48;
-		str++;
-	}
-	return (sign * newint);
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ptr_start;
+
+	if (size && nmemb > (size_t) - 1 / size)
+		return (NULL);
+	ptr_start = malloc(nmemb * size);
+	if (ptr_start == NULL)
+		return (NULL);
+	ft_bzero(ptr_start, nmemb * size);
+	return (ptr_start);
 }
 
 int	main(void)
 {
 //	char *src = "\t\n\v\f\r -0012345";
-	char *src = "\t\n\v\f\r --3213-1234";
-	printf("Example_src: %s\n\n", src);
-	printf("Example_Return: %d\n", atoi(src));
-
-	printf("ft_Return: %d\n", ft_atoi(src));
+//	char *src = "\t\n\v\f\r --3213-1234";
+//	printf("Example_src: %s\n\n", src);
+//	printf("Example_Return: %d\n", atoi(src));
+//
+//	printf("ft_Return: %d\n", ft_atoi(src));
+	printf("size_t for this pc is: %zu\n", (size_t) - 1);
+	char	*testptr;
+	testptr = (char *) ft_calloc(4, );
+	printf("testing allocation: %s\n", testptr);
+	free(testptr);
+	printf("testing free: %s\n", testptr);
+	char *exampleptr = (char *) calloc(4, 2);
+	printf("Example_comp: %s\n", exampleptr);
+	free(exampleptr);
 	return (0);
 }
 
