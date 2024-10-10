@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 14:16:37 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/10 14:38:44 by avaliull         ###   ########.fr       */
+/*   Created: 2024/10/10 15:35:56 by avaliull          #+#    #+#             */
+/*   Updated: 2024/10/10 15:36:11 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_atoi(const char *str)
 {
-	unsigned char	*ptr_dest;
-	unsigned char	*ptr_src;
+	signed char	sign;
+	int			newint;
 
-	ptr_dest = dest;
-	ptr_src = (unsigned char *) src;
-	while (n--)
+	sign = 1;
+	newint = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		*ptr_dest = *ptr_src;
-		ptr_src++;
-		ptr_dest++;
+		if (*str == '-')
+			sign = -sign;
+		str++;
 	}
+	while (*str)
+	{
+		if (*str < 48 || *str > 57)
+			return (sign * newint);
+		newint = newint * 10 + *str - 48;
+		str++;
+	}
+	return (sign * newint);
 }

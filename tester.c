@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/09 19:03:45 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:37:09 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,42 @@
 #include <stdio.h>
 #include <string.h>
 #include <bsd/string.h> // use =lbsd when compiling
+#include <stdlib.h>
 
-static size_t	ft_strlen(const char *str)
+int	ft_atoi(const char *str)
 {
-	size_t	c;
+	signed char	sign;
+	int			newint;
 
-	c = 0;
-	while (*str++)
-		c++;
-	return (c);
-}
-
- size_t	ft_strlcat(char *dst, const char *src, size_t size)
- {
-	size_t	src_len;
-	
-	src_len = ft_strlen(src);
-	size -= 1;
-	while (size--)
+	sign = 1;
+	newint = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		*dst = *src;
-		dst++;
-		src++;
+		if (*str == '-')
+			sign = -sign;
+		str++;
 	}
-	*dst = '\0';
-	return (src_len);
- }
+	while (*str)
+	{
+		if (*str < 48 || *str > 57)
+			return (sign * newint);
+		newint = newint * 10 + *str - 48;
+		str++;
+	}
+	return (sign * newint);
+}
 
 int	main(void)
 {
-	char src[6] = "tenate";
-	char dst[5] = "conca";
-//	char *test_ptr = &src[7];
-//	test_ptr += 1;
-//	*test_ptr = 'a';
-	printf("src: %s\n", src);
-	printf("Example_Return: %zu\n", strlcat(dst, src, 12));
-	printf("Example_Res: %s\n", dst);
-	printf("Example_testChar: %s\n\n", dst + 4);
+//	char *src = "\t\n\v\f\r -0012345";
+	char *src = "\t\n\v\f\r --3213-1234";
+	printf("Example_src: %s\n\n", src);
+	printf("Example_Return: %d\n", atoi(src));
 
-//	char src2[8] = "abcdefgh";
-//	char dst2[8] = "12345678";
-//	char *test_ptr = &src2[7];
-//	test_ptr += 1;
-//	*test_ptr = 'a';
-//	printf("ft_Return: %zu\n", ft_strlcpy(dst2, src2, 4));
-//	printf("ft_Res: %s\n", dst2);
-//	printf("ft_testChar: %s\n", dst2 + 4);
-//	return (0);
+	printf("ft_Return: %d\n", ft_atoi(src));
+	return (0);
 }
 
 
@@ -106,4 +94,21 @@ int	main(void)
 //	printf("ft_Return: %zu\n", ft_strlcpy(dst2, src2, 4));
 //	printf("ft_Res: %s\n", dst2);
 //	printf("ft_testChar: %s\n", dst2 + 4);
+//	return (0);
+
+
+//  FOR TESTING cat/cpy
+//	char src[7] = "tenate";
+//	char dst[6] = "conca";
+//	printf("Example_src: %s\n", src);
+//	printf("Example_Return: %zu\n", strlcat(dst, src, 12));
+//	printf("Example_Res: %s\n", dst);
+//	printf("Example_testChar: %d\n\n", *(dst + 13));
+//
+//	char src2[7] = "tenate";
+//	char dst2[6] = "conca";
+//	printf("ftsrc: %s\n", src2);
+//	printf("ft_Return: %zu\n", strlcat(dst2, src2, 12));
+//	printf("ft_Res: %s\n", dst2);
+//	printf("ft_testChar: %d\n\n", *(dst2 + 12));
 //	return (0);
