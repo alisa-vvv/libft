@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:04:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 14:13:40 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:37:20 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*ptr;
 
 	ptr = s;
-	while (n > 0)
+	while (n--)
 	{
 		*ptr = (unsigned char) '\0';
 		ptr++;
-		n--;
 	}
 }

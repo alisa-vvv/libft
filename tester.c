@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/10 18:08:34 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:01:03 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,49 +16,48 @@
 #include <bsd/string.h> // use =lbsd when compiling
 #include <stdlib.h>
 
-static void	ft_bzero(void *s, size_t n)
+static size_t	ft_strlen(char *str)
 {
-	unsigned char	*ptr;
+	size_t	c;
 
-	ptr = s;
-	while (n > 0)
-	{
-		*ptr = (unsigned char) '\0';
-		ptr++;
-		n--;
-	}
+	c = 0;
+	while (*str++)
+		c++;
+	return (c);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+static void	ft_memcpy(void *dest, const void *src, size_t n)
 {
-	void	*ptr_start;
+	unsigned char	*ptr_dest;
+	unsigned char	*ptr_src;
 
-	if (size && nmemb > (size_t) - 1 / size)
+	ptr_dest = dest;
+	ptr_src = (unsigned char *) src;
+	while (n--)
+		*ptr_dest++ = *ptr_src++;
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*newstr;
+	size_t	lentoend;
+
+	lentoend = ft_strlen((char *) s) - start;
+	if (len > lentoend)
+		len = lentoend;
+	newstr = (char *) malloc((len + 1) * sizeof (char));
+	if (!newstr)
 		return (NULL);
-	ptr_start = malloc(nmemb * size);
-	if (ptr_start == NULL)
-		return (NULL);
-	ft_bzero(ptr_start, nmemb * size);
-	return (ptr_start);
+	ft_memcpy(newstr, s + start, len);
+	*(newstr + len) = '\0';
+	return (newstr);
 }
 
 int	main(void)
 {
-//	char *src = "\t\n\v\f\r -0012345";
-//	char *src = "\t\n\v\f\r --3213-1234";
-//	printf("Example_src: %s\n\n", src);
-//	printf("Example_Return: %d\n", atoi(src));
-//
-//	printf("ft_Return: %d\n", ft_atoi(src));
-	printf("size_t for this pc is: %zu\n", (size_t) - 1);
-	char	*testptr;
-	testptr = (char *) ft_calloc(4, );
-	printf("testing allocation: %s\n", testptr);
-	free(testptr);
-	printf("testing free: %s\n", testptr);
-	char *exampleptr = (char *) calloc(4, 2);
-	printf("Example_comp: %s\n", exampleptr);
-	free(exampleptr);
+	char	*ft_tstr = ft_substr("agusha", 1, 3);
+	printf("ft_res: %s\n", ft_tstr);
+	free(ft_tstr);
 	return (0);
 }
 
@@ -122,3 +121,32 @@ int	main(void)
 //	printf("ft_Res: %s\n", dst2);
 //	printf("ft_testChar: %d\n\n", *(dst2 + 12));
 //	return (0);
+
+// FOR TESTING CALLOC
+//	printf("size_t for this pc is: %zu\n", (size_t) - 1);
+//	char	*testptr;
+//	testptr = (char *) ft_calloc(3, 2);
+//	printf("testing allocation: %s\n", testptr);
+//	free(testptr);
+//	printf("testing free: %s\n", testptr);
+//	char *exampleptr = (char *) calloc(1, 1);
+//	printf("Example_comp: %s\n", exampleptr);
+//	free(exampleptr);
+
+//FOR TESTING STRING + MALLOC STUFF
+//	char	*ft_tstr = ft_strdup("a");
+//	printf("ft_res: %s\n", ft_tstr);
+//	free(ft_tstr);
+//	char	*ex_tstr = strdup("a");
+//	printf("ex_res: %s\n", ex_tstr);
+//	free(ex_tstr);
+
+
+
+//FOR TESTING ATOI
+//	char *src = "\t\n\v\f\r -0012345";
+//	char *src = "\t\n\v\f\r --3213-1234";
+//	printf("Example_src: %s\n\n", src);
+//	printf("Example_Return: %d\n", atoi(src));
+//
+//	printf("ft_Return: %d\n", ft_atoi(src));
