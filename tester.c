@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/11 14:01:03 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:03:28 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <bsd/string.h> // use =lbsd when compiling
 #include <stdlib.h>
 
-static size_t	ft_strlen(char *str)
+static size_t	ft_strlen(const char *str)
 {
 	size_t	c;
 
@@ -37,25 +37,16 @@ static void	ft_memcpy(void *dest, const void *src, size_t n)
 		*ptr_dest++ = *ptr_src++;
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	**ft_slpit(char const *s, char c)
 {
-	char	*newstr;
-	size_t	lentoend;
+	char	*last_c;
 
-	lentoend = ft_strlen((char *) s) - start;
-	if (len > lentoend)
-		len = lentoend;
-	newstr = (char *) malloc((len + 1) * sizeof (char));
-	if (!newstr)
-		return (NULL);
-	ft_memcpy(newstr, s + start, len);
-	*(newstr + len) = '\0';
-	return (newstr);
+	while (*s == c)
 }
 
 int	main(void)
 {
-	char	*ft_tstr = ft_substr("agusha", 1, 3);
+	char	*ft_tstr = ft_strtrim("trim000trim", "trim");
 	printf("ft_res: %s\n", ft_tstr);
 	free(ft_tstr);
 	return (0);

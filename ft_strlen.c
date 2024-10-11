@@ -6,11 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:55:19 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/11 13:20:51 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:27:11 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	c;
 

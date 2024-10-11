@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 12:41:57 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/11 14:27:55 by avaliull         ###   ########.fr       */
+/*   Created: 2024/10/11 14:39:02 by avaliull          #+#    #+#             */
+/*   Updated: 2024/10/11 14:39:21 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,19 @@ static void	ft_memcpy(void *dest, const void *src, size_t n)
 		*ptr_dest++ = *ptr_src++;
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*cateds;
 	size_t	len;
-	char	*newstr;
+	size_t	s1_len;
 
-	len = ft_strlen(s) + 1;
-	newstr = (char *) malloc(len * sizeof(char));
-	if (!newstr)
+	s1_len = ft_strlen(s1);
+	len = s1_len + ft_strlen(s2) + 1;
+	cateds = (char *) malloc (len * sizeof(char));
+	if (!cateds)
 		return (NULL);
-	ft_memcpy(newstr, s, len);
-	return (newstr);
+	ft_memcpy(cateds, s1, s1_len);
+	ft_memcpy(cateds + s1_len, s2, len - s1_len);
+	*(cateds + len) = '\0';
+	return (cateds);
 }

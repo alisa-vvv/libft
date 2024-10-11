@@ -6,11 +6,13 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:35:56 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/11 14:02:26 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:26:39 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static size_t	ft_strlen(char *str)
+#include <stdlib.h>
+
+static size_t	ft_strlen(const char *str)
 {
 	size_t	c;
 

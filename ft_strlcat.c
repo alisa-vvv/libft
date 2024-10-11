@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 18:51:37 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/10 15:34:54 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:26:00 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	dst_len;
 
 	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
+	src_len = ft_strlen((char *) src);
 	if (dst_len == size)
 		return (size + src_len);
 	if (src_len < size)
