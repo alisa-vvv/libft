@@ -6,9 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:50:23 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/14 12:05:34 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:08:43 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -33,24 +35,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-//int	main(void)
-//{	
-//	char	*src;
-//	char	*dest;
-//	char	srcdst[9] = "";
-//	src = &srcdst[2];
-//	dest = &srcdst[0];
-//	printf("src: %s\n\n", src);
-//	memmove(dest, src, 4);
-//	printf("example after: %s\n\n", src);
-//
-//	char	srcdst2[9] = "";
-//	src = &srcdst2[2];
-//	dest = &srcdst2[0];
-//	printf("myfunc before: %s\n", src);
-//	ft_memmove(dest, src, 4);
-//	printf("myfunc after: %s\n", src);
-//	return (0);
-//}
-//

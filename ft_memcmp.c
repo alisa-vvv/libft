@@ -6,9 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:25:18 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/09 11:40:43 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:03:19 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

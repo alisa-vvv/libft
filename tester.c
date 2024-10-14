@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/14 11:57:26 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:21:05 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <string.h>
 #include <bsd/string.h> 
 // use =lbsd when compiling
-#include <stdlib.h>
 #include "libft.h"
 
 //static void	fillstr(void *dest, const void *src, size_t n)
@@ -102,7 +101,7 @@ int	main(void)
 	int	i;
 	array = ft_split("##abcde## a#", '#');
 	i = 0;
-	while (i < 2)
+	while (i < 3)
 	{
 		printf("ft_res: %s\n", array[i]);
 		i++;

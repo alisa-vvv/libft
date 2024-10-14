@@ -6,9 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:17:50 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 19:17:54 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:06:22 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

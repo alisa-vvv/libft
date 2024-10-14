@@ -6,9 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:16:37 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/11 13:14:07 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:07:25 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 void	ft_memcpy(void *dest, const void *src, size_t n)
 {

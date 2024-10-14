@@ -6,9 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:20:30 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 18:26:28 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:13:36 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 char	*ft_strrchr(const char *s, int c)
 {

@@ -6,9 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:13:04 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 14:05:09 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:07:41 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {

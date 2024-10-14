@@ -6,9 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:04:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/11 12:37:20 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:02:02 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 void	ft_bzero(void *s, size_t n)
 {
