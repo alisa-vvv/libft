@@ -6,12 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:58:33 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/14 12:05:09 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:56:14 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 //static void	ft_bzero(void *s, size_t n)
 //{
