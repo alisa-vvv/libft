@@ -6,10 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:38:17 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/11 17:55:56 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:58:13 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
 static void	fillstr(void *dest, const void *src, size_t n)

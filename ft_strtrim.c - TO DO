@@ -1,0 +1,76 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strtrim.c - TO DO                               :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/10/11 14:57:28 by avaliull          #+#    #+#              #
+#    Updated: 2024/10/14 11:41:56 by avaliull         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+static size_t	ft_strlen(const char *str)
+{
+	size_t	c;
+
+	c = 0;
+	while (*str++)
+		c++;
+	return (c);
+}
+
+static void	ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*ptr_dest;
+	unsigned char	*ptr_src;
+
+	ptr_dest = dest;
+	ptr_src = (unsigned char *) src;
+	while (n--)
+		*ptr_dest++ = *ptr_src++;
+}
+
+static int	isequal(const char *hay, const char *needle, size_t len)
+{
+	while (len)
+	{
+		if (*needle != *hay)
+			return (0);
+		needle++;
+		if (!*needle)
+			return (1);
+		len--;
+		hay++;
+	}
+	return (0);
+}
+
+static char	*appraiser(const char *hay, const char *needle, size_t len)
+{
+	while (*hay && len--)
+	{
+		if (*hay == *needle)
+		{
+			needle++;
+			if (!*needle || isequal(hay + 1, needle, len) == 1)
+				return (1);
+		}
+		hay++;
+	}
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	setlen;
+	char	*trimmeds;
+
+	if (!*set)
+	{
+		malloc(trimmeds)
+	}
+	setlen = ft_strlen(set);
+	if (*s1 == *set)
+		if (!appraiser(s1 + 1, set + 1, setlen - 1);
+}
