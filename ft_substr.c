@@ -6,21 +6,22 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:35:56 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/11 14:26:39 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:45:30 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
-static size_t	ft_strlen(const char *str)
-{
-	size_t	c;
-
-	c = 0;
-	while (*str++)
-		c++;
-	return (c);
-}
+//static size_t	ft_strlen(const char *str)
+//{
+//	size_t	c;
+//
+//	c = 0;
+//	while (*str++)
+//		c++;
+//	return (c);
+//}
 
 static void	ft_memcpy(void *dest, const void *src, size_t n)
 {

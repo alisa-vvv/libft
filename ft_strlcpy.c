@@ -6,20 +6,22 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:48:52 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/11 13:30:26 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:44:33 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static size_t	ft_strlen(const char *str)
-{
-	size_t	c;
+#include "libft.h"
 
-	c = 0;
-	while (*str++)
-		c++;
-	return (c);
-}
-
+//static size_t	ft_strlen(const char *str)
+//{
+//	size_t	c;
+//
+//	c = 0;
+//	while (*str++)
+//		c++;
+//	return (c);
+//}
+//
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	src_len;

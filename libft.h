@@ -6,12 +6,14 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:48:45 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/14 11:53:47 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:02:43 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
