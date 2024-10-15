@@ -26,7 +26,9 @@ ft_substr.c\
 ft_tolower.c\
 ft_toupper.c\
 ft_strtrim.c\
-ft_itoa.c
+ft_itoa.c\
+ft_strmapi.c\
+ft_striteri.c
 
 OFILES	= $(CFILES:.c=.o)
 

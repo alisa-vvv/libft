@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/15 17:25:17 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/15 19:07:07 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,29 @@
 // use =lbsd when compiling
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+static void	test(unsigned int i, char *c)
 {
+	*c = i + 48;
+}
 
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	ind;
+
+	ind = 0;
+	while (s[ind])
+	{
+		f(ind, &s[ind]);
+		ind++;
+	}
 }
 
 int	main(void)
 {	
-	char src[7] = "tenate";
-	char dst[9] = "00000000";
-	char dst2[9] = "00000000";
-	printf("Example_src: %s\n", src);
-	memcpy(dst, src, 6);
-	ft_memcpy(dst2, src, 6);
-	printf("Example_Return: %s\n", dst);
-	printf("my_Return: %s\n", dst2);
+	char	src[6] = "00000";
+	printf("Before: %s\n", src);
+	ft_striteri(src, test);
+	printf("After: %s\n", src);
 	return (0);
 }
 
@@ -157,3 +165,18 @@ int	main(void)
 //	ft_memcpy(dst2, src, 6);
 //	printf("Example_Return: %s\n", dst);
 //	printf("my_Return: %s\n", dst2);
+
+
+// FOR TRESTING STRMAPI
+//static char	test(unsigned int i, char *c)
+//{
+//	return (*c + i);
+//}
+
+//char	*resstr;
+//char	*src = "00000";
+//resstr = ft_strmapi(src, test);
+//printf("src: %s\n", src);
+//printf("Res: %s\n", resstr);
+//free(resstr);
+//return (0);
