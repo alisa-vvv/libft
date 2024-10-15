@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/15 14:16:56 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:22:16 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ char	*ft_itoa(int n)
 	char	neg;
 	
 	nlen = 0;
-	tmp_int = n;
 	neg = 0;
 	if (n < 0)
+	{
+		n = -n;
 		neg = 1;
+	}
+	tmp_int = n;
 	while(n)
 	{
 		n /= 10;
@@ -48,7 +51,7 @@ char	*ft_itoa(int n)
 		printf("tmpint: %d\n", tmp_int);
 	}
 	if (neg)
-		*convstr = '-';
+		*(convstr - 1) = '-';
 		//ft_memset(convstr, '-', 1);
 	convstr[nlen + neg] = '\0';
 	printf("convstr: %s\n", convstr);
