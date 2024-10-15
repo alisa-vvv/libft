@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/15 14:22:16 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/15 17:25:17 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,54 +17,21 @@
 // use =lbsd when compiling
 #include "libft.h"
 
-char	*ft_itoa(int n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 {
-	int		nlen;
-	int		tmp_int;
-	char	*convstr;
-	char	neg;
-	
-	nlen = 0;
-	neg = 0;
-	if (n < 0)
-	{
-		n = -n;
-		neg = 1;
-	}
-	tmp_int = n;
-	while(n)
-	{
-		n /= 10;
-		nlen++;
-	}
-	printf("testnlen: %d\n", nlen);
-	convstr = (char *) malloc((nlen + 1 + neg) * sizeof(char));
-	if (!convstr)
-		return (NULL);
-	convstr += (nlen + neg);
-	while(tmp_int > 0)
-	{
-		convstr--;
-		*convstr = tmp_int % 10 + 48;
-		printf("convstr[i] = %c\n", *convstr);
-		tmp_int /= 10;
-		printf("tmpint: %d\n", tmp_int);
-	}
-	if (neg)
-		*(convstr - 1) = '-';
-		//ft_memset(convstr, '-', 1);
-	convstr[nlen + neg] = '\0';
-	printf("convstr: %s\n", convstr);
-	return (convstr);
+
 }
 
 int	main(void)
-{
-	char	*res;
-
-	res = ft_itoa(-1234);
-	printf("res: %s\n", res);
-	free(res);
+{	
+	char src[7] = "tenate";
+	char dst[9] = "00000000";
+	char dst2[9] = "00000000";
+	printf("Example_src: %s\n", src);
+	memcpy(dst, src, 6);
+	ft_memcpy(dst2, src, 6);
+	printf("Example_Return: %s\n", dst);
+	printf("my_Return: %s\n", dst2);
 	return (0);
 }
 
@@ -180,3 +147,13 @@ int	main(void)
 //	printf("Result: %s\n", newstr);
 //	printf("testnull: %c\n", newstr[8]);
 //	free (newstr);
+
+// FOR TESTING MEMCPY
+//	char src[7] = "tenate";
+//	char dst[9] = "00000000";
+//	char dst2[9] = "00000000";
+//	printf("Example_src: %s\n", src);
+//	memcpy(dst, src, 6);
+//	ft_memcpy(dst2, src, 6);
+//	printf("Example_Return: %s\n", dst);
+//	printf("my_Return: %s\n", dst2);
