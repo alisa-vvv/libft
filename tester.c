@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/14 18:19:05 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:16:56 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,52 @@
 // use =lbsd when compiling
 #include "libft.h"
 
+char	*ft_itoa(int n)
+{
+	int		nlen;
+	int		tmp_int;
+	char	*convstr;
+	char	neg;
+	
+	nlen = 0;
+	tmp_int = n;
+	neg = 0;
+	if (n < 0)
+		neg = 1;
+	while(n)
+	{
+		n /= 10;
+		nlen++;
+	}
+	printf("testnlen: %d\n", nlen);
+	convstr = (char *) malloc((nlen + 1 + neg) * sizeof(char));
+	if (!convstr)
+		return (NULL);
+	convstr += (nlen + neg);
+	while(tmp_int > 0)
+	{
+		convstr--;
+		*convstr = tmp_int % 10 + 48;
+		printf("convstr[i] = %c\n", *convstr);
+		tmp_int /= 10;
+		printf("tmpint: %d\n", tmp_int);
+	}
+	if (neg)
+		*convstr = '-';
+		//ft_memset(convstr, '-', 1);
+	convstr[nlen + neg] = '\0';
+	printf("convstr: %s\n", convstr);
+	return (convstr);
+}
+
 int	main(void)
 {
-	char	*orig = "abbcab3213dsav2bbccaa";
-	char	*newstr;
+	char	*res;
 
-	printf("orig: %s\n", orig);
-	newstr = ft_strtrim(orig, "abc");
-	printf("Result: %s\n", newstr);
-	printf("testnull: %c\n", newstr[8]);
-	free (newstr);
+	res = ft_itoa(-1234);
+	printf("res: %s\n", res);
+	free(res);
+	return (0);
 }
 
 
