@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:44:18 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/15 17:09:48 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:30:46 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ static int	lenctr(long n)
 
 static void	itoaer(char *convstr, long tmp_int)
 {
+	*convstr = '\0';
+	if (tmp_int == 0)
+	{
+		*(convstr - 1) = '0';
+		return ;
+	}
 	while (tmp_int)
 	{
 		convstr--;
@@ -48,7 +54,10 @@ char	*ft_itoa(int n)
 		tmp_int = -tmp_int;
 		nlen++;
 	}
-	nlen += lenctr(tmp_int);
+	if (n == 0)
+		nlen = 1;
+	else
+		nlen += lenctr(tmp_int);
 	convstr = (char *) malloc((nlen + 1) * sizeof(char));
 	if (!convstr)
 		return (NULL);

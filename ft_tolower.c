@@ -6,12 +6,13 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:26:09 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 17:27:45 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:40:44 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	c += 32;
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
 	return (c);
 }

@@ -6,12 +6,13 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 17:13:16 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 17:25:32 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:40:50 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	c -= 32;
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
 	return (c);
 }

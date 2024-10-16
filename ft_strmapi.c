@@ -6,13 +6,14 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:23:25 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/16 11:31:40 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/16 16:19:54 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char*))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	ind;
 	char			*resstr;
@@ -27,7 +28,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char*))
 		return (NULL);
 	while (ind < len)
 	{
-		resstr[ind] = f(ind, (char *)&s[ind]);
+		resstr[ind] = f(ind, s[ind]);
 		ind++;
 	}
 	resstr[len] = 0;

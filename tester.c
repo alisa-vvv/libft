@@ -6,52 +6,26 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/16 13:02:40 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:32:53 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <ctype.h>
 //#include <stdio.h>
 //#include <string.h>
-//#include <bsd/string.h> 
+#include <bsd/string.h> 
 // use =lbsd when compiling
+//#include "libft.h"
+//#include <fcntl.h>
+//#include <stddef.h>
+#include <stdio.h>
 #include "libft.h"
-#include <unistd.h>
-#include <fcntl.h>
-
-static void	recwrite(long tmpn, int fd)
-{
-	char	c;
-
-	if (tmpn < 10)
-	{
-		c = tmpn + 48;
-		write(fd, &c, 1);
-		return ;
-	}
-	c = tmpn % 10 + 48;
-	recwrite(tmpn / 10, fd);
-	write(fd, &c, 1);
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	long	tmpn;
-
-	tmpn = n;
-	if (n < 0)
-	{
-		tmpn = -tmpn;
-		write(fd, "-", 1);
-	}
-	recwrite(tmpn, fd);
-}
 
 int	main(void)
-{	
-	int fd = open("test.out", O_RDWR | O_CREAT);
-	ft_putnbr_fd(0, fd);
-	close(fd);
+{
+	char	*res;
+	res = ft_itoa(-2147483648);
+	printf("result: %s\n", res);
 	return (0);
 }
 
@@ -101,19 +75,14 @@ int	main(void)
 
 
 //  FOR TESTING cat/cpy
-//	char src[7] = "tenate";
-//	char dst[6] = "conca";
+//	char *src = "efgh";
+//	char dst[9] = "abcd";
 //	printf("Example_src: %s\n", src);
-//	printf("Example_Return: %zu\n", strlcat(dst, src, 12));
+//	printf("Example_Return: %zu\n", strlcat(dst, src, 9));
 //	printf("Example_Res: %s\n", dst);
-//	printf("Example_testChar: %d\n\n", *(dst + 13));
-//
-//	char src2[7] = "tenate";
-//	char dst2[6] = "conca";
-//	printf("ftsrc: %s\n", src2);
-//	printf("ft_return: %zu\n", strlcat(dst2, src2, 12));
+//	char dst2[9] = "abcd";
+//	printf("ft_return: %zu\n", ft_strlcat(dst2, src, 9));
 //	printf("ft_res: %s\n", dst2);
-//	printf("ft_testchar: %d\n\n", *(dst2 + 12));
 //	return (0);
 
 // FOR TESTING CALLOC
@@ -208,5 +177,11 @@ int	main(void)
 //	FOR TESTING PUTCHaR
 //	int fd = open("test.txt", O_RDWR | O_CREAT);
 //	ft_putchar_fd('a', fd);
+//	close(fd);
+//	return (0);
+
+//	FOR TESTING PUTNMBR
+//	int fd = open("test.out", O_RDWR | O_CREAT);
+//	ft_putnbr_fd(32818, fd);
 //	close(fd);
 //	return (0);
