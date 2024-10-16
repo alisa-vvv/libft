@@ -6,40 +6,52 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/15 19:07:07 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/16 13:02:40 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-#include <stdio.h>
-#include <string.h>
-#include <bsd/string.h> 
+//#include <ctype.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <bsd/string.h> 
 // use =lbsd when compiling
 #include "libft.h"
+#include <unistd.h>
+#include <fcntl.h>
 
-static void	test(unsigned int i, char *c)
+static void	recwrite(long tmpn, int fd)
 {
-	*c = i + 48;
+	char	c;
+
+	if (tmpn < 10)
+	{
+		c = tmpn + 48;
+		write(fd, &c, 1);
+		return ;
+	}
+	c = tmpn % 10 + 48;
+	recwrite(tmpn / 10, fd);
+	write(fd, &c, 1);
 }
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	ind;
+	long	tmpn;
 
-	ind = 0;
-	while (s[ind])
+	tmpn = n;
+	if (n < 0)
 	{
-		f(ind, &s[ind]);
-		ind++;
+		tmpn = -tmpn;
+		write(fd, "-", 1);
 	}
+	recwrite(tmpn, fd);
 }
 
 int	main(void)
 {	
-	char	src[6] = "00000";
-	printf("Before: %s\n", src);
-	ft_striteri(src, test);
-	printf("After: %s\n", src);
+	int fd = open("test.out", O_RDWR | O_CREAT);
+	ft_putnbr_fd(0, fd);
+	close(fd);
 	return (0);
 }
 
@@ -180,3 +192,21 @@ int	main(void)
 //printf("Res: %s\n", resstr);
 //free(resstr);
 //return (0);
+
+// FOR TESTING STRITERI
+
+//static void	test(unsigned int i, char *c)
+//{
+//	*c = i + 48;
+//}
+//
+//	char	src[6] = "00000";
+//	printf("Before: %s\n", src);
+//	ft_striteri(NULL, test);
+//	printf("After: %s\n", src);
+
+//	FOR TESTING PUTCHaR
+//	int fd = open("test.txt", O_RDWR | O_CREAT);
+//	ft_putchar_fd('a', fd);
+//	close(fd);
+//	return (0);
