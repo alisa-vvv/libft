@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/17 20:54:42 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:18:32 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 int	main(void)
 {
-	printf("resulting string: %d\n\n", *ft_strtrim("", "0"));
+	printf("resulting string: %d\n\n", *ft_strtrim("00000", "0"));
 	return (0);
 }
 
