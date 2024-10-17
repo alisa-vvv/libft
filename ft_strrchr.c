@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:20:30 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/14 14:13:36 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/17 17:31:33 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	last_occ = NULL;
 	while (*ptr_s)
 	{
-		if (*ptr_s == c)
+		if (*ptr_s == (char) c)
 			last_occ = ptr_s;
 		ptr_s++;
 	}
-	if (c == '\0')
+	if ((char) c == '\0')
 		return (ptr_s);
 	return (last_occ);
 }

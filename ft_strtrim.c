@@ -6,22 +6,33 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 14:57:28 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/14 18:20:18 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:00:49 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char	*trimmer(char const *s, char const *set, char *edge, char m)
+static	char	*trimright(char const *s, char const *set)
 {
-	while (s != edge)
+	while (*s)
 	{
 		if (!ft_strchr(set, *s))
 			return ((char *) s);
-		s += m;
+		s++;
 	}
-	s -= 1;
 	return ((char *) s);
+}
+
+static	char	*trimleft(char const *s, char const *set, size_t j, size_t i)
+{
+	while (--j > i)
+	{
+		if (!ft_strchr(set, s[j]))
+			return ((char *) &s[j]);
+	}
+	if (i == 0)
+		return ((char *) &s[0]);
+	return ((char *) &s[j]);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -32,17 +43,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	newstrlen;
 	size_t	s1len;
 
-	s1len = ft_strlen(s1);
-	if (!s1 || !set)
+	if (!set)
 		return (NULL);
-	s1start = trimmer(s1, set, (char *)(s1 + s1len), 1);
-	s1end = trimmer(s1 + s1len - 1, set, s1start, -1);
-	newstrlen = s1end - s1start + 1;
+	s1len = ft_strlen(s1);
+	s1start = trimright(s1, set);
+	s1end = trimleft(s1, set, s1len, s1start - s1);
+	newstrlen = (s1end - s1start + 1);
 	newstr = (char *) malloc((newstrlen + 1) * sizeof(char));
 	if (!newstr)
 		return (NULL);
-	if (newstrlen == 1)
-		newstrlen = 0;
 	ft_memcpy(newstr, s1start, newstrlen);
 	newstr[newstrlen] = '\0';
 	return (newstr);

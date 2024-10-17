@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:42:30 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/14 14:11:22 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/17 17:42:51 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 	{
 		if (*hay == *needle)
 		{
-			needle++;
-			if (!*needle || isequal(hay + 1, needle, len) == 1)
+			if (!*(needle + 1) || isequal(hay + 1, needle + 1, len) == 1)
 				return ((char *) hay);
 		}
 		hay++;

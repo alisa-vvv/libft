@@ -6,13 +6,13 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/17 16:52:25 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:54:42 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <ctype.h>
 //#include <stdio.h>
-//#include <string.h>
+#include <string.h>
 #include <bsd/string.h> 
 // use =lbsd when compiling
 //#include "libft.h"
@@ -23,9 +23,7 @@
 
 int	main(void)
 {
-	char	**res;
-	res = ft_split("", 'z');
-	printf("result: %s\n", res[0]);
+	printf("resulting string: %d\n\n", *ft_strtrim("", "0"));
 	return (0);
 }
 
@@ -104,7 +102,16 @@ int	main(void)
 //	printf("ex_res: %s\n", ex_tstr);
 //	free(ex_tstr);
 
-
+// FOR TESTING STRCHR/STRRCHR
+//	char	*test;
+//	char	*ptrtest;
+//
+//	test = "teste";
+//	ptrtest = test + 5;
+//	if (ptrtest == ft_strrchr(test, 1024))
+//		printf("same adress");
+//	else
+//		printf("distance: %ld\n", test - ptrtest);
 
 //FOR TESTING ATOI
 //	char *src = "\t\n\v\f\r -0012345";
@@ -185,3 +192,8 @@ int	main(void)
 //	ft_putnbr_fd(32818, fd);
 //	close(fd);
 //	return (0);
+
+
+//	FOR TESTING STRNSTR
+
+//	printf("myres: %s\n", ft_strnstr("cats bring bugs home", "catss", 26));

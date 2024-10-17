@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:38:17 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/17 17:03:14 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/17 17:32:07 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	char	**splitted_s;
-	
+
 	splitted_s = memallocer(s, &c);
 	if (!splitted_s)
 		return (NULL);
