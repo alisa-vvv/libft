@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/16 17:32:53 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:52:25 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 
 int	main(void)
 {
-	char	*res;
-	res = ft_itoa(-2147483648);
-	printf("result: %s\n", res);
+	char	**res;
+	res = ft_split("", 'z');
+	printf("result: %s\n", res[0]);
 	return (0);
 }
 
