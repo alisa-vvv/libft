@@ -6,11 +6,12 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 14:57:28 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/19 14:38:52 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 16:08:38 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static	char	*trimright(char const *s, char const *set)
 {

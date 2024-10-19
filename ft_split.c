@@ -6,11 +6,12 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:38:17 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/19 14:15:31 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 16:06:09 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static size_t	wcounter(char const *s, char c)
 {

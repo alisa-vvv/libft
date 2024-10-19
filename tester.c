@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/19 15:52:24 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 16:35:29 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,16 @@ int	main(void)
 	t_list	**first_el;
 	t_list	*newel;
 	char	*content_test = "first";
+
 	tstlist = ft_lstnew((void *) content_test);
 	first_el = &tstlist;
 	printf("Element #0: %s\n", (char *) tstlist->content);
+	printf("number of elements in list = %d\n\n", ft_lstsize(*first_el));
 	newel = ft_lstnew((void *) "no me");
 	ft_lstadd_front(first_el, newel);
 	printf("new Element #0: %s\n", (char *) (*first_el)->content);
 	printf("new Element #1: %s\n", (char *) ((*first_el)->next)->content);
+	printf("last element: %s\n", (char *) ft_lstlast(*first_el)->content);
 	return (0);
 }
 
@@ -233,3 +236,41 @@ int	main(void)
 //	ft_lstadd_front(first_el, newel);
 //	printf("new Element #0: %s\n", (char *) (*first_el)->content);
 //	printf("new Element #1: %s\n", (char *) ((*first_el)->next)->content);
+	
+//FOR TESTING LSTSIZE	
+//	t_list	*tstlist;
+//	t_list	**first_el;
+//	t_list	*newel;
+//	t_list	*tstNULL = NULL;
+//	char	*content_test = "first";
+//
+//	tstlist = ft_lstnew((void *) content_test);
+//	first_el = &tstlist;
+//	printf("Element #0: %s\n", (char *) tstlist->content);
+//	printf("number of elements in list = %d\n\n", ft_lstsize(*first_el));
+//	newel = ft_lstnew((void *) "no me");
+//	ft_lstadd_front(first_el, newel);
+//	printf("new Element #0: %s\n", (char *) (*first_el)->content);
+//	printf("new Element #1: %s\n", (char *) ((*first_el)->next)->content);
+//	printf("number of elements in list should be 2 = %d\n\n", ft_lstsize(*first_el));
+//	ft_lstadd_front(first_el, newel);
+//	ft_lstadd_front(first_el, newel);
+//	ft_lstadd_front(first_el, newel);
+//	printf("number of elements in list should be 5 = %d\n\n", ft_lstsize(*first_el));
+//	printf("number of elements when lst is NULL = %d\n\n", ft_lstsize(tstNULL));
+
+// FOR TESTING LASTEL
+//	t_list	*tstlist;
+//	t_list	**first_el;
+//	t_list	*newel;
+//	char	*content_test = "first";
+//
+//	tstlist = ft_lstnew((void *) content_test);
+//	first_el = &tstlist;
+//	printf("Element #0: %s\n", (char *) tstlist->content);
+//	printf("number of elements in list = %d\n\n", ft_lstsize(*first_el));
+//	newel = ft_lstnew((void *) "no me");
+//	ft_lstadd_front(first_el, newel);
+//	printf("new Element #0: %s\n", (char *) (*first_el)->content);
+//	printf("new Element #1: %s\n", (char *) ((*first_el)->next)->content);
+//	printf("last element: %s\n", (char *) ft_lstlast(*first_el)->content);

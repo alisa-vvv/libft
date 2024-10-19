@@ -34,7 +34,9 @@ CFILES	=	ft_atoi.c\
 			ft_putnbr_fd.c
 
 FILESBONUS =	ft_lstnew_bonus.c\
-				ft_lstadd_front.c
+				ft_lstadd_front_bonus.c\
+				ft_lstsize_bonus.c\
+				ft_lstlast_bonus.c
 
 OFILES	= $(CFILES:.c=.o)
 

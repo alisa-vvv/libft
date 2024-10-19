@@ -6,11 +6,12 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:11:20 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/18 18:10:35 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 16:03:07 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 t_list	*ft_lstnew(void *content)
 {
