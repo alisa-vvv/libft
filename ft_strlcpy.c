@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:48:52 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/19 12:04:34 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 14:41:24 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	src_len;
 
-	if (!dst || !src)
-		return (0);
 	src_len = ft_strlen((char *) src);
 	if (size == 0)
 		return (src_len);
