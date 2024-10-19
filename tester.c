@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/19 16:35:29 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 17:45:00 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@
 // use =lbsd when compiling
 //#include "libft.h"
 //#include <fcntl.h>
-//#include <stddef.h>
+#include <stddef.h>
 #include <stdio.h>
 #include "libft.h"
 
-//int	main(void)
-//{
-//	printf("resulting string: %d\n\n", *ft_strtrim("00000", "0"));
-//	return (0);
-//}
+void	delstr(void *strtodel)
+{
+	ft_bzero((char *) strtodel, ft_strlen(strtodel));
+}
 
 int	main(void)
 {
@@ -42,7 +41,11 @@ int	main(void)
 	ft_lstadd_front(first_el, newel);
 	printf("new Element #0: %s\n", (char *) (*first_el)->content);
 	printf("new Element #1: %s\n", (char *) ((*first_el)->next)->content);
-	printf("last element: %s\n", (char *) ft_lstlast(*first_el)->content);
+
+	printf("last element: %s\n", (char *) ft_lstlast(*first_el)->content);	
+	ft_lstdelone(ft_lstlast(*first_el), delstr);
+	(*first_el)->next = NULL;
+	printf("last element: %s\n", (char *) (*first_el)->content);
 	return (0);
 }
 
