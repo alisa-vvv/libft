@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/19 14:33:29 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 15:52:24 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,17 @@
 
 int	main(void)
 {
-	char	*orig = "2222220";
-//	char	*orig = "012345678"0;
-	char	*newstr;
-
-	printf("orig: %s\n", orig);
-	newstr = ft_strtrim(orig, "2");
-	printf("Result: %s\n", newstr);
-	free (newstr);
-//	printf("result: %d\n", !(!a));
+	t_list	*tstlist;
+	t_list	**first_el;
+	t_list	*newel;
+	char	*content_test = "first";
+	tstlist = ft_lstnew((void *) content_test);
+	first_el = &tstlist;
+	printf("Element #0: %s\n", (char *) tstlist->content);
+	newel = ft_lstnew((void *) "no me");
+	ft_lstadd_front(first_el, newel);
+	printf("new Element #0: %s\n", (char *) (*first_el)->content);
+	printf("new Element #1: %s\n", (char *) ((*first_el)->next)->content);
 	return (0);
 }
 
@@ -217,3 +219,17 @@ int	main(void)
 //	int	i = 3;
 //	tstlist = ft_lstnew("lalala");
 //	printf("new element: %s", (char *) tstlist->content);
+//	printf("new element: %s", (char *) tstlist->next);
+
+// FOR TESTING ADDFRONTLST
+//	t_list	*tstlist;
+//	t_list	**first_el;
+//	t_list	*newel;
+//	char	*content_test = "first";
+//	tstlist = ft_lstnew((void *) content_test);
+//	first_el = &tstlist;
+//	printf("Element #0: %s\n", (char *) tstlist->content);
+//	newel = ft_lstnew((void *) "no me");
+//	ft_lstadd_front(first_el, newel);
+//	printf("new Element #0: %s\n", (char *) (*first_el)->content);
+//	printf("new Element #1: %s\n", (char *) ((*first_el)->next)->content);
