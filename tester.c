@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/19 17:45:00 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 18:36:40 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ int	main(void)
 
 	tstlist = ft_lstnew((void *) content_test);
 	first_el = &tstlist;
-	printf("Element #0: %s\n", (char *) tstlist->content);
-	printf("number of elements in list = %d\n\n", ft_lstsize(*first_el));
 	newel = ft_lstnew((void *) "no me");
 	ft_lstadd_front(first_el, newel);
 	printf("new Element #0: %s\n", (char *) (*first_el)->content);
