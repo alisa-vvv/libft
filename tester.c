@@ -6,11 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/17 21:18:32 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 14:33:29 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <ctype.h>
+#include <ctype.h>
 //#include <stdio.h>
 #include <string.h>
 #include <bsd/string.h> 
@@ -21,12 +21,25 @@
 #include <stdio.h>
 #include "libft.h"
 
+//int	main(void)
+//{
+//	printf("resulting string: %d\n\n", *ft_strtrim("00000", "0"));
+//	return (0);
+//}
+
 int	main(void)
 {
-	printf("resulting string: %d\n\n", *ft_strtrim("00000", "0"));
+	char	*orig = "2222220";
+//	char	*orig = "012345678"0;
+	char	*newstr;
+
+	printf("orig: %s\n", orig);
+	newstr = ft_strtrim(orig, "2");
+	printf("Result: %s\n", newstr);
+	free (newstr);
+//	printf("result: %d\n", !(!a));
 	return (0);
 }
-
 
 //	unsigned char	*str;
 //	str = memcmp("ab0cde", '0', 4);
@@ -197,3 +210,10 @@ int	main(void)
 //	FOR TESTING STRNSTR
 
 //	printf("myres: %s\n", ft_strnstr("cats bring bugs home", "catss", 26));
+
+
+//FOR TESTING NEWLST
+//	t_list	*tstlist;
+//	int	i = 3;
+//	tstlist = ft_lstnew("lalala");
+//	printf("new element: %s", (char *) tstlist->content);

@@ -6,13 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 12:43:25 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:25:16 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
+	return (c >= '0' && c <= '9');
 }

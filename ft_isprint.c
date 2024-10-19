@@ -6,13 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:49:31 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 12:53:50 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:13:18 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if (c < 32 || c > 126)
-		return (0);
-	return (16384);
+	return (c >= 32 && c <= 126);
 }

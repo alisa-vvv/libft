@@ -6,13 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:48:21 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/08 12:49:06 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 11:59:08 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	return (1);
+	return (c >= 0 && c <= 127);
 }

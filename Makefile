@@ -34,25 +34,37 @@ ft_putstr_fd.c\
 ft_putendl_fd.c\
 ft_putnbr_fd.c
 
+FILESBONUS = ft_lstnew_bonus.c
+
 OFILES	= $(CFILES:.c=.o)
+
+OFILESBONUS = $(FILESBONUS:.c=.o)
 
 CC	= gcc
 
 CFLAGS	= -Wall -Wextra -Werror
 
+RM	= rm -f
+
+AR	= ar -rcs
+
 NAME	= libft.a
 
-all: $(NAME) clean
+all: $(NAME)
 
 $(NAME): $(OFILES)
-		ar rcs $(NAME) $(OFILES)
+	$(AR) $(NAME) $(OFILES)
+
+bonus: $(OFILESBONUS)
+	$(AR) $(NAME) $(OFILESBONUS)
+	$(MAKE)
 
 clean:
-	rm -f $(OFILES)
+	$(RM) $(OFILES) $(OFILESBONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean $(NAME) $(OFILESBONUS)
 
-PHONY: all clean fclean re
+PHONY: all clean fclean re bonus

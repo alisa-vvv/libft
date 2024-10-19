@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:38:17 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/17 17:32:07 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/19 14:15:31 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,18 @@ static const char	*wordallocer(char **arr, char const *s, char c, size_t i)
 	return (s);
 }
 
+char	**unalloc(char **splitted_s, size_t i)
+{
+	while (i > 0)
+	{
+		free (splitted_s[i]);
+		i--;
+	}
+	free (splitted_s[0]);
+	free (splitted_s);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -81,10 +93,7 @@ char	**ft_split(char const *s, char c)
 		{
 			s = wordallocer(splitted_s, s, c, i);
 			if (!s)
-			{
-				free (splitted_s);
-				return (NULL);
-			}
+				return (unalloc(splitted_s, i));
 			i++;
 		}
 	}
