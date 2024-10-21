@@ -57,6 +57,9 @@ AR	= ar -rcs
 
 NAME	= libft.a
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 all: $(NAME)
 
 $(NAME): $(OFILES)
@@ -64,7 +67,6 @@ $(NAME): $(OFILES)
 
 bonus: $(OFILESBONUS)
 	$(AR) $(NAME) $(OFILESBONUS)
-	$(MAKE)
 
 clean:
 	$(RM) $(OFILES) $(OFILESBONUS)
@@ -72,6 +74,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean $(NAME) $(OFILESBONUS)
+re: fclean all 
 
-PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus
