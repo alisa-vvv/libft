@@ -6,12 +6,11 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/21 14:46:12 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/21 16:35:06 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
-//#include <stdio.h>
 #include <string.h>
 #include <bsd/string.h> 
 // use =lbsd when compiling
@@ -22,18 +21,20 @@
 #include <stdlib.h>
 #include "libft.h"
 
-void	del_str_node(void *lst)
+void	del_str_node(void *content)
 {
-	free(lst);
+	free(content);
 }
 
-void	testfunc(void *str)
+void	*testfunc(void *str)
 {
 	char	*string;
-	char	to_rep[4] = "abc";
+	char	to_rep[4] = "Nbc";
 
 	string = (char *) str;
-	ft_memcpy(string, &to_rep[0], 3);
+	ft_memcpy(string, &to_rep[0], 1);
+	string = ft_strdup(string);
+	return (string);
 }
 
 void	printnode(void *node_to_print)
@@ -44,6 +45,7 @@ void	printnode(void *node_to_print)
 int	main(void)
 {
 	t_list	*testlist;
+	t_list	*mappedlist;
 
 	testlist = ft_lstnew(ft_strdup("000"));
 	testlist->next = ft_lstnew(ft_strdup("001"));
@@ -51,10 +53,12 @@ int	main(void)
 	testlist->next->next->next = ft_lstnew(ft_strdup("003"));
 	testlist->next->next->next->next = ft_lstnew(ft_strdup("004"));
 	ft_lstiter(testlist, printnode);
-	printf("end of list\n");
-	ft_lstiter(testlist, testfunc);
-	ft_lstiter(testlist, printnode);
+	printf("end of list\n\n");
+	mappedlist = ft_lstmap(testlist, testfunc, del_str_node);
+	ft_lstiter(mappedlist, printnode);
+	printf("end of list\n\n");
 	ft_lstclear(&testlist, del_str_node);
+	ft_lstclear(&mappedlist, del_str_node);
 	return (0);
 }
 
@@ -321,5 +325,47 @@ int	main(void)
 //	ft_lstiter(testlist, testfunc);
 //	ft_lstiter(testlist, printnode);
 //	ft_lstclear(&testlist, del_str_node);
+//	return (0);
+//}
+
+// FOR TESTING ft_lstmap_bonus
+//void	del_str_node(void *content)
+//{
+//	free(content);
+//}
+//
+//void	*testfunc(void *str)
+//{
+//	char	*string;
+//	char	to_rep[4] = "Nbc";
+//
+//	string = (char *) str;
+//	ft_memcpy(string, &to_rep[0], 1);
+//	string = ft_strdup(string);
+//	return (string);
+//}
+//
+//void	printnode(void *node_to_print)
+//{
+//	printf("# %s\n", (char *) node_to_print);
+//}
+//
+//int	main(void)
+//{
+//	t_list	*testlist;
+//	t_list	*mappedlist;
+//
+//	testlist = ft_lstnew(ft_strdup("000"));
+//	testlist->next = ft_lstnew(ft_strdup("001"));
+//	testlist->next->next = ft_lstnew(ft_strdup("002"));
+//	testlist->next->next->next = ft_lstnew(ft_strdup("003"));
+//	testlist->next->next->next->next = ft_lstnew(ft_strdup("004"));
+//	ft_lstiter(testlist, printnode);
+//	printf("end of list\n\n");
+//	mappedlist = ft_lstmap(testlist, testfunc, del_str_node);
+//	ft_lstiter(mappedlist, printnode);
+//	printf("end of list\n\n");
+//	ft_lstclear(&testlist, del_str_node);
+//	ft_lstclear(&mappedlist, del_str_node);
 //	return (0);
 //}
