@@ -6,7 +6,7 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 11:47:26 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/19 18:36:40 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:46:12 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,42 @@
 //#include <fcntl.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "libft.h"
 
-void	delstr(void *strtodel)
+void	del_str_node(void *lst)
 {
-	ft_bzero((char *) strtodel, ft_strlen(strtodel));
+	free(lst);
+}
+
+void	testfunc(void *str)
+{
+	char	*string;
+	char	to_rep[4] = "abc";
+
+	string = (char *) str;
+	ft_memcpy(string, &to_rep[0], 3);
+}
+
+void	printnode(void *node_to_print)
+{
+	printf("# %s\n", (char *) node_to_print);
 }
 
 int	main(void)
 {
-	t_list	*tstlist;
-	t_list	**first_el;
-	t_list	*newel;
-	char	*content_test = "first";
+	t_list	*testlist;
 
-	tstlist = ft_lstnew((void *) content_test);
-	first_el = &tstlist;
-	newel = ft_lstnew((void *) "no me");
-	ft_lstadd_front(first_el, newel);
-	printf("new Element #0: %s\n", (char *) (*first_el)->content);
-	printf("new Element #1: %s\n", (char *) ((*first_el)->next)->content);
-
-	printf("last element: %s\n", (char *) ft_lstlast(*first_el)->content);	
-	ft_lstdelone(ft_lstlast(*first_el), delstr);
-	(*first_el)->next = NULL;
-	printf("last element: %s\n", (char *) (*first_el)->content);
+	testlist = ft_lstnew(ft_strdup("000"));
+	testlist->next = ft_lstnew(ft_strdup("001"));
+	testlist->next->next = ft_lstnew(ft_strdup("002"));
+	testlist->next->next->next = ft_lstnew(ft_strdup("003"));
+	testlist->next->next->next->next = ft_lstnew(ft_strdup("004"));
+	ft_lstiter(testlist, printnode);
+	printf("end of list\n");
+	ft_lstiter(testlist, testfunc);
+	ft_lstiter(testlist, printnode);
+	ft_lstclear(&testlist, del_str_node);
 	return (0);
 }
 
@@ -275,3 +286,40 @@ int	main(void)
 //	printf("new Element #0: %s\n", (char *) (*first_el)->content);
 //	printf("new Element #1: %s\n", (char *) ((*first_el)->next)->content);
 //	printf("last element: %s\n", (char *) ft_lstlast(*first_el)->content);
+
+// FOR TESTING LSTITER
+//void	del_str_node(void *lst)
+//{
+//	free(lst);
+//}
+//
+//void	testfunc(void *str)
+//{
+//	char	*string;
+//	char	to_rep[4] = "abc";
+//
+//	string = (char *) str;
+//	ft_memcpy(string, &to_rep[0], 3);
+//}
+//
+//void	printnode(void *node_to_print)
+//{
+//	printf("# %s\n", (char *) node_to_print);
+//}
+//
+//int	main(void)
+//{
+//	t_list	*testlist;
+//
+//	testlist = ft_lstnew(ft_strdup("000"));
+//	testlist->next = ft_lstnew(ft_strdup("001"));
+//	testlist->next->next = ft_lstnew(ft_strdup("002"));
+//	testlist->next->next->next = ft_lstnew(ft_strdup("003"));
+//	testlist->next->next->next->next = ft_lstnew(ft_strdup("004"));
+//	ft_lstiter(testlist, printnode);
+//	printf("end of list\n");
+//	ft_lstiter(testlist, testfunc);
+//	ft_lstiter(testlist, printnode);
+//	ft_lstclear(&testlist, del_str_node);
+//	return (0);
+//}
