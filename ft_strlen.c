@@ -6,18 +6,18 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 12:55:19 by avaliull          #+#    #+#             */
-/*   Updated: 2024/10/14 14:10:36 by avaliull         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:27:47 by avaliull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
 	size_t	c;
 
 	c = 0;
-	while (*str++)
+	while (*s++)
 		c++;
 	return (c);
 }
