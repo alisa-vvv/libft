@@ -49,7 +49,7 @@ OFILESBONUS = $(FILESBONUS:.c=.o)
 
 CC	= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -O3
 
 RM	= rm -f
 
