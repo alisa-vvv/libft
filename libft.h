@@ -6,19 +6,13 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:48:45 by avaliull          #+#    #+#             */
-/*   Updated: 2024/12/14 14:31:29 by avaliull       ########   odam.nl        */
+/*   Updated: 2024/12/14 14:46:21 by avaliull       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
-# include <unistd.h>
-
-static inline void ignore_result(ssize_t unused_result)
-{
-	(void) unused_result;
-}
 
 typedef struct s_list
 {

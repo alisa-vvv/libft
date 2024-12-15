@@ -6,11 +6,17 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:25:40 by avaliull          #+#    #+#             */
-/*   Updated: 2024/12/14 14:32:15 by avaliull       ########   odam.nl        */
+/*   Updated: 2024/12/15 13:48:36 by avaliull       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
+
+static inline void	ignore_result(ssize_t unused_result)
+{
+	(void) unused_result;
+}
 
 void	ft_putendl_fd(char *s, int fd)
 {

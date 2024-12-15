@@ -6,13 +6,13 @@
 /*   By: avaliull <avaliull@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:30:09 by avaliull          #+#    #+#             */
-/*   Updated: 2024/12/14 14:32:49 by avaliull       ########   odam.nl        */
+/*   Updated: 2024/12/15 13:49:24 by avaliull       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static inline void ignore_result(ssize_t unused_result)
+static inline void	ignore_result(ssize_t unused_result)
 {
 	(void) unused_result;
 }
