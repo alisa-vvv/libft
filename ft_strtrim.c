@@ -45,7 +45,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		newstrlen;
 	int		s1len;
 
-	if (!set)
+	if (!set || !s1)
 		return (NULL);
 	s1len = ft_strlen(s1);
 	s1start = trimright(s1, set);
