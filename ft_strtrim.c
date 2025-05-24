@@ -51,6 +51,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	s1start = trimright(s1, set);
 	s1end = trimleft(s1, set, s1len - 1, s1start - s1);
 	newstrlen = (s1end - s1start);
+	if (newstrlen <= 0)
+		return (NULL);
 	newstr = (char *) malloc((newstrlen + 1) * sizeof(char));
 	if (!newstr)
 		return (NULL);
