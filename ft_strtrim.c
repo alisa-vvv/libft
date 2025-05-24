@@ -50,9 +50,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	s1len = ft_strlen(s1);
 	s1start = trimright(s1, set);
 	s1end = trimleft(s1, set, s1len - 1, s1start - s1);
-	#include <stdio.h>
 	newstrlen = (s1end - s1start);
-	printf("testing strlen: %d\n", newstrlen);
 	newstr = (char *) malloc((newstrlen + 1) * sizeof(char));
 	if (!newstr)
 		return (NULL);
