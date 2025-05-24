@@ -1,0 +1,7 @@
+test.c
+test.txt
+a.out
+*.swp
+libft.a
+*.o
+README.MD
